@@ -51,7 +51,7 @@ public class LoginControllerZenloop {
         String password = tfPassword.getText();
 
         if (username.isEmpty() || password.isEmpty()) {
-            showAlert(AlertType.WARNING, "Username or Password doesnt fill ",
+            AlertUtil.showAlert(AlertType.WARNING, "Username or Password doesnt fill ",
                     "Please fill Username and Password correctly");
             return;
         }
@@ -72,7 +72,7 @@ public class LoginControllerZenloop {
                 stage.centerOnScreen();
 
                 System.out.println("Login successful!");
-                showAlert(AlertType.CONFIRMATION, "Welcome to Zenloop",
+                AlertUtil.showAlert(AlertType.CONFIRMATION, "Welcome to Zenloop",
                         "Welcome to zenloop, before you start the application, would you like to aggre for the user policy?");
 
             } catch (Exception e) {
@@ -80,8 +80,9 @@ public class LoginControllerZenloop {
                 System.out.println("Error loading home page: " + e.getMessage());
             }
         } else {
-            showAlert(Alert.AlertType.WARNING, "Invalid Data",
-                    "Your username or password doesnt match, please fill the correct one");
+            AlertUtil.showAlert(null, username, password);
+            // AlershowAlert(Alert.AlertType.WARNING, "Invalid Data",
+            // "Your username or password doesnt match, please fill the correct one");
         }
     }
 
@@ -114,14 +115,5 @@ public class LoginControllerZenloop {
         } catch (Exception e) {
             System.out.println("kesalahan dalam memuat halaman");
         }
-    }
-
-    @FXML
-    private void showAlert(Alert.AlertType type, String title, String message) {
-        Alert alert = new Alert(type);
-        alert.setTitle(title);
-        alert.setHeaderText(null);
-        alert.setContentText(message);
-        alert.showAndWait();
     }
 }

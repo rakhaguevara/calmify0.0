@@ -33,6 +33,7 @@ public class BannerController {
             System.out.println("Halaman Login berhasil tampil");
 
         } catch (Exception e) {
+            // showAlert()
             System.err.println("Kesalahan tidak terduga (File tidak terbaca, fxml format salah) ");
         }
     }
